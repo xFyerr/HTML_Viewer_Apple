@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120110BA2FC5814D00E50140 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 120110B92FC5814D00E50140 /* test.html */; };
 		12BEBB382FC51AE200C45C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12BEBB262FC51AE200C45C45 /* Assets.xcassets */; };
 		12BEBB3A2FC51AE200C45C45 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEBB362FC51AE200C45C45 /* WebViewWrapper.swift */; };
 		12BEBB3B2FC51AE200C45C45 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEBB2E2FC51AE200C45C45 /* DocumentPickerView.swift */; };
@@ -18,10 +19,19 @@
 		12BEBB412FC51AE200C45C45 /* HTMLFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEBB2B2FC51AE200C45C45 /* HTMLFile.swift */; };
 		12BEBB422FC51AE200C45C45 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEBB272FC51AE200C45C45 /* Color+Hex.swift */; };
 		12BEBB432FC51AE200C45C45 /* RecentFileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEBB312FC51AE200C45C45 /* RecentFileRow.swift */; };
+		47AA89F0AAF94D1D8DC4B7A7 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF8B787C564440BB9A9017 /* Folder.swift */; };
+		E9BFED2BEA724AC082A6D8E1 /* ViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C7B866E5479DBB3D87C9 /* ViewMode.swift */; };
+		393C1FFF96304DADB8C67E50 /* FolderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C754C29FE371459AA1EDF6AD /* FolderRow.swift */; };
+		BA85B48B8D3045ED90683938 /* FolderGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92931E0FDB24ECEACB107F9 /* FolderGridItem.swift */; };
+		A2CDD2D7FEB7462590574648 /* CreateFolderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30F92B2B0445C4B55FB143 /* CreateFolderSheet.swift */; };
+		EF02410C03114F4E96A8040B /* EditableFolderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6117589D7334ADBA5A8DD64 /* EditableFolderList.swift */; };
+		845438607A124CCD84663A86 /* DraggableFolderGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319A934AB894895848313BB /* DraggableFolderGrid.swift */; };
+		768563852C71459BB0CC8CDD /* FolderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B582C3DE92041E5809B567C /* FolderDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12BEBB062FC51A7000C45C45 /* HTMLViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTMLViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		120110B92FC5814D00E50140 /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		12BEBB062FC51A7000C45C45 /* HTMLViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HTMLViewer.app; path = "/Users/yagnik/Desktop/My Apps/HTML_Viewer_Xcode/HTMLViewer/build/Debug-iphoneos/HTMLViewer.app"; sourceTree = "<absolute>"; };
 		12BEBB262FC51AE200C45C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12BEBB272FC51AE200C45C45 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		12BEBB292FC51AE200C45C45 /* HTMLViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLViewerApp.swift; sourceTree = "<group>"; };
@@ -35,6 +45,14 @@
 		12BEBB342FC51AE200C45C45 /* HTMLViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLViewerView.swift; sourceTree = "<group>"; };
 		12BEBB362FC51AE200C45C45 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		12BEBB442FC51B6300C45C45 /* HTMLViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HTMLViewer-Info.plist"; sourceTree = "<group>"; };
+		ABFF8B787C564440BB9A9017 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		B689C7B866E5479DBB3D87C9 /* ViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMode.swift; sourceTree = "<group>"; };
+		C754C29FE371459AA1EDF6AD /* FolderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRow.swift; sourceTree = "<group>"; };
+		F92931E0FDB24ECEACB107F9 /* FolderGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderGridItem.swift; sourceTree = "<group>"; };
+		FE30F92B2B0445C4B55FB143 /* CreateFolderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderSheet.swift; sourceTree = "<group>"; };
+		A6117589D7334ADBA5A8DD64 /* EditableFolderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableFolderList.swift; sourceTree = "<group>"; };
+		8319A934AB894895848313BB /* DraggableFolderGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableFolderGrid.swift; sourceTree = "<group>"; };
+		9B582C3DE92041E5809B567C /* FolderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,7 @@
 		12BEBAFD2FC51A7000C45C45 = {
 			isa = PBXGroup;
 			children = (
+				120110B92FC5814D00E50140 /* test.html */,
 				12BEBB442FC51B6300C45C45 /* HTMLViewer-Info.plist */,
 				12BEBB262FC51AE200C45C45 /* Assets.xcassets */,
 				12BEBB282FC51AE200C45C45 /* Extensions */,
@@ -60,16 +79,7 @@
 				12BEBB2F2FC51AE200C45C45 /* Pickers */,
 				12BEBB352FC51AE200C45C45 /* Views */,
 				12BEBB372FC51AE200C45C45 /* WebView */,
-				12BEBB072FC51A7000C45C45 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		12BEBB072FC51A7000C45C45 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				12BEBB062FC51A7000C45C45 /* HTMLViewer.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		12BEBB282FC51AE200C45C45 /* Extensions */ = {
@@ -83,8 +93,10 @@
 		12BEBB2D2FC51AE200C45C45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ABFF8B787C564440BB9A9017 /* Folder.swift */,
 				12BEBB2B2FC51AE200C45C45 /* HTMLFile.swift */,
 				12BEBB2C2FC51AE200C45C45 /* RecentFilesManager.swift */,
+				B689C7B866E5479DBB3D87C9 /* ViewMode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,7 +112,12 @@
 		12BEBB322FC51AE200C45C45 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FE30F92B2B0445C4B55FB143 /* CreateFolderSheet.swift */,
+				8319A934AB894895848313BB /* DraggableFolderGrid.swift */,
+				A6117589D7334ADBA5A8DD64 /* EditableFolderList.swift */,
 				12BEBB302FC51AE200C45C45 /* EmptyStateView.swift */,
+				F92931E0FDB24ECEACB107F9 /* FolderGridItem.swift */,
+				C754C29FE371459AA1EDF6AD /* FolderRow.swift */,
 				12BEBB312FC51AE200C45C45 /* RecentFileRow.swift */,
 			);
 			path = Components;
@@ -110,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				12BEBB322FC51AE200C45C45 /* Components */,
+				9B582C3DE92041E5809B567C /* FolderDetailView.swift */,
 				12BEBB332FC51AE200C45C45 /* HomeView.swift */,
 				12BEBB342FC51AE200C45C45 /* HTMLViewerView.swift */,
 			);
@@ -171,7 +189,7 @@
 			mainGroup = 12BEBAFD2FC51A7000C45C45;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 12BEBB072FC51A7000C45C45 /* Products */;
+			productRefGroup = 12BEBAFD2FC51A7000C45C45;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -185,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120110BA2FC5814D00E50140 /* test.html in Resources */,
 				12BEBB382FC51AE200C45C45 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +225,14 @@
 				12BEBB412FC51AE200C45C45 /* HTMLFile.swift in Sources */,
 				12BEBB422FC51AE200C45C45 /* Color+Hex.swift in Sources */,
 				12BEBB432FC51AE200C45C45 /* RecentFileRow.swift in Sources */,
+				47AA89F0AAF94D1D8DC4B7A7 /* Folder.swift in Sources */,
+				E9BFED2BEA724AC082A6D8E1 /* ViewMode.swift in Sources */,
+				393C1FFF96304DADB8C67E50 /* FolderRow.swift in Sources */,
+				BA85B48B8D3045ED90683938 /* FolderGridItem.swift in Sources */,
+				A2CDD2D7FEB7462590574648 /* CreateFolderSheet.swift in Sources */,
+				EF02410C03114F4E96A8040B /* EditableFolderList.swift in Sources */,
+				845438607A124CCD84663A86 /* DraggableFolderGrid.swift in Sources */,
+				768563852C71459BB0CC8CDD /* FolderDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
