@@ -1,7 +1,6 @@
-# HTML Viewer — Native iPadOS App
+# HTML Viewer — Native iOS App
 
-A polished, minimal HTML file viewer for iPad. Open local `.html` files directly from
-the Files app and view them in a true full-screen experience with no intrusive navigation chrome.
+A polished, minimal HTML file viewer for iPhone and iPad. Open local `.html` files directly from the Files app — including Claude-generated HTML artifacts saved to your device — and view them in a true full-screen experience with no intrusive navigation chrome.
 
 ---
 
@@ -137,22 +136,22 @@ Alternatively, copy `HTMLViewer/Info.plist` from this repo into your Xcode proje
 
 ---
 
-## Building & Running on iPad
+## Building & Running on iPhone or iPad
 
 ### Via USB (Recommended)
 
-1. Connect your iPad with a USB cable
-2. Trust the Mac on your iPad if prompted
-3. In Xcode, select your iPad in the device picker at the top
+1. Connect your iPhone or iPad with a USB cable
+2. Trust the Mac on your device if prompted
+3. In Xcode, select your device in the device picker at the top
 4. Press **⌘ R** (or the ▶ button)
-5. Xcode builds and installs the app. The first run may ask you to trust the developer on the iPad:
+5. Xcode builds and installs the app. The first run may ask you to trust the developer on the device:
    - Go to **Settings › General › VPN & Device Management**
    - Tap your Apple ID → **Trust**
 
 ### Free Developer Account — 7-Day Limit
 
 A free Apple ID certificate expires every **7 days**. To renew:
-- Reconnect your iPad, open Xcode, and run again (⌘ R). Xcode re-signs automatically.
+- Reconnect your device, open Xcode, and run again (⌘ R). Xcode re-signs automatically.
 
 To avoid this, sign up for the **$99/year Apple Developer Program** — certificates last a year.
 
@@ -168,15 +167,15 @@ If you don't have Xcode access, you can install a pre-built `.ipa`:
 3. This produces an `.ipa` file
 
 ### Install with AltStore
-1. Install **AltStore** on your PC/Mac and the **AltStore** app on your iPad (altstore.io)
-2. Open AltStore on iPad → **My Apps** → **+** → select the `.ipa`
+1. Install **AltStore** on your PC/Mac and the **AltStore** app on your iPhone or iPad (altstore.io)
+2. Open AltStore on your device → **My Apps** → **+** → select the `.ipa`
 3. AltStore re-signs and installs it
 
 ### Install with Sideloadly
 1. Download **Sideloadly** (sideloadly.io)
-2. Connect iPad via USB
+2. Connect your iPhone or iPad via USB
 3. Drop the `.ipa` into Sideloadly, enter your Apple ID, click **Start**
-4. Trust the certificate on iPad (same Settings path as above)
+4. Trust the certificate on your device (same Settings path as above)
 
 ---
 
