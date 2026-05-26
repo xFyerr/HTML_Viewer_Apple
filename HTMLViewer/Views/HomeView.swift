@@ -53,6 +53,17 @@ struct HomeView: View {
 
             Spacer()
 
+            Button(action: openDemo) {
+                ZStack {
+                    Circle()
+                        .fill(Color(hex: "2A2A2A"))
+                        .frame(width: 44, height: 44)
+                    Image(systemName: "doc.text")
+                        .font(.system(size: 18))
+                        .foregroundColor(Color(hex: "C4714B"))
+                }
+            }
+
             Button(action: { isShowingFilePicker = true }) {
                 ZStack {
                     Circle()
@@ -67,6 +78,12 @@ struct HomeView: View {
         }
         .padding(.horizontal, 20)
         .padding(.bottom, 8)
+    }
+
+    private func openDemo() {
+        guard let url = Bundle.main.url(forResource: "test", withExtension: "html"),
+              let bookmark = try? url.bookmarkData() else { return }
+        selectedFile = HTMLFile(name: "test.html", bookmarkData: bookmark)
     }
 
     // MARK: - Recents list

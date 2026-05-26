@@ -7,7 +7,52 @@ struct HTMLViewerView: View {
     @State private var showControls = true
     @State private var hideTask: Task<Void, Never>?
 
+    private var isPhone: Bool {
+        UIDevice.current.userInterfaceIdiom == .phone
+    }
+
     var body: some View {
+        if isPhone {
+            iphoneLayout
+        } else {
+            ipadLayout
+        }
+    }
+
+    // MARK: - iPhone layout (persistent header, safe area respected)
+
+    private var iphoneLayout: some View {
+        GeometryReader { geo in
+            let topInset = geo.safeAreaInsets.top
+            VStack(spacing: 0) {
+                persistentHeader(topInset: topInset)
+                if let url = file.resolveURL() {
+                    WebViewWrapper(url: url, onScroll: { })
+                } else {
+                    unavailableView
+                }
+            }
+            .ignoresSafeArea()
+        }
+    }
+
+    private func persistentHeader(topInset: CGFloat) -> some View {
+        ZStack(alignment: .bottomLeading) {
+            Color(hex: "1A1A1A")
+            Button(action: { dismiss() }) {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundStyle(Color(hex: "C4714B"))
+            }
+            .padding(.leading, 16)
+            .padding(.bottom, 10)
+        }
+        .frame(height: topInset + 6)
+    }
+
+    // MARK: - iPad layout (full screen, floating auto-hide back button)
+
+    private var ipadLayout: some View {
         ZStack(alignment: .topLeading) {
             if let url = file.resolveURL() {
                 WebViewWrapper(url: url, onScroll: showControlsTemporarily)
@@ -21,7 +66,6 @@ struct HTMLViewerView: View {
                     .transition(.opacity.animation(.easeInOut(duration: 0.5)))
             }
         }
-        // Tap anywhere (outside the back button) to toggle controls
         .contentShape(Rectangle())
         .onTapGesture {
             toggleControls()
