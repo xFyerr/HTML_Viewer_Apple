@@ -10,7 +10,7 @@ struct HTMLViewerView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             if let url = file.resolveURL() {
-                WebViewWrapper(url: url)
+                WebViewWrapper(url: url, onScroll: showControlsTemporarily)
                     .ignoresSafeArea()
             } else {
                 unavailableView
@@ -29,33 +29,23 @@ struct HTMLViewerView: View {
         .onAppear {
             scheduleAutoHide()
         }
-        .statusBarHidden(!showControls)
+        .statusBarHidden(true)
+        .persistentSystemOverlays(.hidden)
     }
 
     // MARK: - Controls overlay
 
     private var floatingBackButton: some View {
-        VStack {
-            HStack {
-                Button(action: { dismiss() }) {
-                    HStack(spacing: 6) {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 15, weight: .semibold))
-                        Text("Back")
-                            .font(.system(size: 15, weight: .medium))
-                    }
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                    .background(.ultraThinMaterial, in: Capsule())
-                }
-                .padding(.leading, 20)
-                .padding(.top, 56) // below status bar
-
-                Spacer()
-            }
-            Spacer()
+        Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+                .font(.system(size: 17, weight: .semibold))
+                .foregroundStyle(.white)
+                .shadow(color: .black.opacity(0.6), radius: 3, x: 0, y: 1)
+                .frame(width: 34, height: 34)
         }
+        .padding(.leading, 16)
+        .padding(.top, 20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 
     private var unavailableView: some View {
@@ -81,16 +71,19 @@ struct HTMLViewerView: View {
     // MARK: - Control visibility helpers
 
     private func toggleControls() {
-        withAnimation {
-            showControls.toggle()
-        }
+        withAnimation { showControls.toggle() }
         if showControls { scheduleAutoHide() } else { hideTask?.cancel() }
+    }
+
+    func showControlsTemporarily() {
+        withAnimation { showControls = true }
+        scheduleAutoHide()
     }
 
     private func scheduleAutoHide() {
         hideTask?.cancel()
         hideTask = Task {
-            try? await Task.sleep(for: .seconds(3))
+            try? await Task.sleep(for: .seconds(1.5))
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 withAnimation { showControls = false }

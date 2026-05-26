@@ -17,12 +17,12 @@ struct HTMLFile: Identifiable, Codable, Hashable {
     /// Returns nil if the file has been deleted or moved.
     func resolveURL() -> URL? {
         var isStale = false
-        let url = try? URL(
+        guard let url = try? URL(
             resolvingBookmarkData: bookmarkData,
-            options: .withoutUI,
+            options: [],
             relativeTo: nil,
             bookmarkDataIsStale: &isStale
-        )
+        ) else { return nil }
         return url
     }
 }

@@ -3,6 +3,7 @@ import WebKit
 
 struct WebViewWrapper: UIViewRepresentable {
     let url: URL
+    var onScroll: (() -> Void)?
 
     func makeCoordinator() -> Coordinator {
         Coordinator()
@@ -14,53 +15,87 @@ struct WebViewWrapper: UIViewRepresentable {
         config.mediaTypesRequiringUserActionForPlayback = []
 
         let webView = WKWebView(frame: .zero, configuration: config)
-        // Prevent WKWebView from adjusting insets for the safe area — we want
-        // the HTML content to fill all the way to the physical edges.
+        webView.navigationDelegate = context.coordinator
         webView.scrollView.contentInsetAdjustmentBehavior = .never
         webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
         webView.isOpaque = true
         webView.backgroundColor = UIColor(hex: "1A1A1A")
         webView.scrollView.backgroundColor = UIColor(hex: "1A1A1A")
 
+        context.coordinator.startObservingScroll(on: webView)
+
         return webView
     }
 
     func updateUIView(_ webView: WKWebView, context: Context) {
-        // Only load if this is the first call (webView.url == nil) so we
-        // don't redundantly reload on every SwiftUI state update.
+        context.coordinator.onScroll = onScroll
         guard webView.url == nil else { return }
         context.coordinator.load(url: url, into: webView)
     }
 
     static func dismantleUIView(_: WKWebView, coordinator: Coordinator) {
-        coordinator.releaseAccess()
+        coordinator.cleanup()
     }
 
     // MARK: - Coordinator
 
     final class Coordinator: NSObject, WKNavigationDelegate {
-        private var accessedURL: URL?
+        var onScroll: (() -> Void)?
 
-        /// Starts security-scoped access, then loads the file URL.
+        private var accessedURL: URL?
+        private var tempDir: URL?
+        private var scrollObservation: NSKeyValueObservation?
+
+        func startObservingScroll(on webView: WKWebView) {
+            scrollObservation = webView.scrollView.observe(\.contentOffset, options: [.new, .old]) { [weak self] _, change in
+                guard let newY = change.newValue?.y, let oldY = change.oldValue?.y,
+                      newY != oldY else { return }
+                DispatchQueue.main.async { self?.onScroll?() }
+            }
+        }
+
         func load(url: URL, into webView: WKWebView) {
-            releaseAccess()
+            cleanup(keepObservation: true)
 
             let accessed = url.startAccessingSecurityScopedResource()
             if accessed { accessedURL = url }
 
-            // Allow read access to the parent directory so the HTML file can
-            // load relative resources (images, CSS, JS) stored alongside it.
-            let directory = url.deletingLastPathComponent()
-            webView.loadFileURL(url, allowingReadAccessTo: directory)
+            let fm = FileManager.default
+            let staging = fm.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: true)
+
+            do {
+                try fm.copyItem(at: url.deletingLastPathComponent(), to: staging)
+                tempDir = staging
+                let stagedFile = staging.appendingPathComponent(url.lastPathComponent)
+                webView.loadFileURL(stagedFile, allowingReadAccessTo: staging)
+            } catch {
+                print("Staging copy failed: \(error)")
+                if let html = try? String(contentsOf: url, encoding: .utf8) {
+                    webView.loadHTMLString(html, baseURL: nil)
+                }
+            }
         }
 
-        func releaseAccess() {
+        func cleanup(keepObservation: Bool = false) {
             accessedURL?.stopAccessingSecurityScopedResource()
             accessedURL = nil
+            if let dir = tempDir {
+                try? FileManager.default.removeItem(at: dir)
+                tempDir = nil
+            }
+            if !keepObservation {
+                scrollObservation = nil
+            }
         }
 
-        deinit {
-            releaseAccess()
+        func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError error: Error) {
+            print("WKWebView provisional load failed: \(error)")
         }
+
+        func webView(_: WKWebView, didFail _: WKNavigation!, withError error: Error) {
+            print("WKWebView navigation failed: \(error)")
+        }
+
+        deinit { cleanup() }
     }
 }

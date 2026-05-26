@@ -18,7 +18,7 @@ class RecentFilesManager: ObservableObject {
         defer { if needsScope { url.stopAccessingSecurityScopedResource() } }
 
         guard let bookmark = try? url.bookmarkData(
-            options: .minimalBookmark,
+            options: [],
             includingResourceValuesForKeys: nil,
             relativeTo: nil
         ) else { return }
