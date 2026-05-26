@@ -18,7 +18,7 @@ struct HTMLViewerView: View {
 
             if showControls {
                 floatingBackButton
-                    .transition(.opacity.animation(.easeInOut(duration: 0.2)))
+                    .transition(.opacity.animation(.easeInOut(duration: 0.5)))
             }
         }
         // Tap anywhere (outside the back button) to toggle controls
@@ -83,7 +83,7 @@ struct HTMLViewerView: View {
     private func scheduleAutoHide() {
         hideTask?.cancel()
         hideTask = Task {
-            try? await Task.sleep(for: .seconds(1.5))
+            try? await Task.sleep(for: .seconds(0.8))
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 withAnimation { showControls = false }

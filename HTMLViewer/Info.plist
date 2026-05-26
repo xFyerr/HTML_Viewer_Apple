@@ -47,6 +47,9 @@
     <key>UIRequiresFullScreen</key>
     <false/>
 
+    <key>CFBundleDisplayName</key>
+    <string>Artifact Viewer</string>
+
     <key>UILaunchScreen</key>
     <dict/>
 
