@@ -75,9 +75,9 @@ struct HomeView: View {
 
             Spacer()
 
-            Button(action: openDemo) {
-                iconButton(systemName: "doc.text")
-            }
+            // Button(action: openDemo) {
+            //     iconButton(systemName: "doc.text")
+            // }
 
             Button { viewMode = ViewMode.grid.rawValue } label: {
                 iconButton(
