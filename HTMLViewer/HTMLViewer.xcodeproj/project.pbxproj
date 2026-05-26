@@ -27,6 +27,7 @@
 		EF02410C03114F4E96A8040B /* EditableFolderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6117589D7334ADBA5A8DD64 /* EditableFolderList.swift */; };
 		845438607A124CCD84663A86 /* DraggableFolderGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319A934AB894895848313BB /* DraggableFolderGrid.swift */; };
 		768563852C71459BB0CC8CDD /* FolderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B582C3DE92041E5809B567C /* FolderDetailView.swift */; };
+		CC1234567890ABCDEF123456 /* FileGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9876543210FEDCBA987654 /* FileGridItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		A6117589D7334ADBA5A8DD64 /* EditableFolderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableFolderList.swift; sourceTree = "<group>"; };
 		8319A934AB894895848313BB /* DraggableFolderGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableFolderGrid.swift; sourceTree = "<group>"; };
 		9B582C3DE92041E5809B567C /* FolderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDetailView.swift; sourceTree = "<group>"; };
+		CC9876543210FEDCBA987654 /* FileGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGridItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				8319A934AB894895848313BB /* DraggableFolderGrid.swift */,
 				A6117589D7334ADBA5A8DD64 /* EditableFolderList.swift */,
 				12BEBB302FC51AE200C45C45 /* EmptyStateView.swift */,
+				CC9876543210FEDCBA987654 /* FileGridItem.swift */,
 				F92931E0FDB24ECEACB107F9 /* FolderGridItem.swift */,
 				C754C29FE371459AA1EDF6AD /* FolderRow.swift */,
 				12BEBB312FC51AE200C45C45 /* RecentFileRow.swift */,
@@ -233,6 +236,7 @@
 				EF02410C03114F4E96A8040B /* EditableFolderList.swift in Sources */,
 				845438607A124CCD84663A86 /* DraggableFolderGrid.swift in Sources */,
 				768563852C71459BB0CC8CDD /* FolderDetailView.swift in Sources */,
+				CC1234567890ABCDEF123456 /* FileGridItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

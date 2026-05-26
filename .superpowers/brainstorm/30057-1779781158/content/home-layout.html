@@ -1,0 +1,115 @@
+<h2>How should folders appear in the home view?</h2>
+<p class="subtitle">Most recent file always pins to top — folders appear below in user-defined order</p>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1A1A1A;padding:16px;border-radius:8px;font-family:-apple-system,sans-serif;">
+      <div style="color:#888;font-size:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Recents</div>
+      <!-- Recent file row -->
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;margin-bottom:6px;">
+        <div style="width:36px;height:36px;background:#C4714B;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📄</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">report.html</div>
+          <div style="color:#666;font-size:11px">Just now</div>
+        </div>
+      </div>
+      <div style="color:#888;font-size:10px;margin:10px 0 6px;text-transform:uppercase;letter-spacing:1px">Folders</div>
+      <!-- Folder rows -->
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;margin-bottom:6px;">
+        <div style="width:36px;height:36px;background:#3A5A8A;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📁</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">Work Projects</div>
+          <div style="color:#666;font-size:11px">3 files</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;">
+        <div style="width:36px;height:36px;background:#3A5A8A;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📁</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">Personal</div>
+          <div style="color:#666;font-size:11px">5 files</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Two Sections</h3>
+      <p>Separate "Recents" and "Folders" sections with labels. Files not in folders appear under Recents. Clean separation.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1A1A1A;padding:16px;border-radius:8px;font-family:-apple-system,sans-serif;">
+      <div style="color:#888;font-size:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Recents</div>
+      <!-- Most recent file pinned -->
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;margin-bottom:6px;">
+        <div style="width:36px;height:36px;background:#C4714B;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📄</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">report.html</div>
+          <div style="color:#666;font-size:11px">Just now · Not in a folder</div>
+        </div>
+      </div>
+      <!-- Folder mixed in -->
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;margin-bottom:6px;">
+        <div style="width:36px;height:36px;background:#3A5A8A;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📁</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">Work Projects</div>
+          <div style="color:#666;font-size:11px">3 files</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;margin-bottom:6px;">
+        <div style="width:36px;height:36px;background:#C4714B;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📄</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">index.html</div>
+          <div style="color:#666;font-size:11px">2 hours ago</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#2A2A2A;border-radius:8px;padding:10px 12px;">
+        <div style="width:36px;height:36px;background:#3A5A8A;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📁</div>
+        <div>
+          <div style="color:#fff;font-size:13px;font-weight:600">Personal</div>
+          <div style="color:#666;font-size:11px">5 files</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Mixed List</h3>
+      <p>Files and folders interleaved. Most recent file always first, then user arranges folders and loose files freely by drag.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1A1A1A;padding:16px;border-radius:8px;font-family:-apple-system,sans-serif;">
+      <!-- Most recent pinned at top -->
+      <div style="display:flex;align-items:center;gap:12px;background:#1E3A2A;border:1px solid #2A5A3A;border-radius:8px;padding:10px 12px;margin-bottom:10px;">
+        <div style="width:36px;height:36px;background:#C4714B;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📄</div>
+        <div style="flex:1">
+          <div style="color:#fff;font-size:13px;font-weight:600">report.html</div>
+          <div style="color:#666;font-size:11px">Just now · Most Recent</div>
+        </div>
+        <div style="color:#C4714B;font-size:10px;font-weight:700">RECENT</div>
+      </div>
+      <div style="color:#888;font-size:10px;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px">Your Folders</div>
+      <!-- Folders in grid-ish -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <div style="background:#2A2A2A;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:24px">📁</div>
+          <div style="color:#fff;font-size:11px;font-weight:600;margin-top:4px">Work</div>
+          <div style="color:#666;font-size:10px">3 files</div>
+        </div>
+        <div style="background:#2A2A2A;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:24px">📁</div>
+          <div style="color:#fff;font-size:11px;font-weight:600;margin-top:4px">Personal</div>
+          <div style="color:#666;font-size:10px">5 files</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Pinned Recent + Folder Grid</h3>
+      <p>Most recent file pinned prominently at top. Folders below in a grid. Tapping a folder opens it to show its files.</p>
+    </div>
+  </div>
+
+</div>
