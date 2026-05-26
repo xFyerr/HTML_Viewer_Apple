@@ -13,19 +13,9 @@ struct HomeView: View {
     private var currentMode: ViewMode { ViewMode(rawValue: viewMode) ?? .list }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color(hex: "1A1A1A").ignoresSafeArea()
-
-                NavigationLink(
-                    destination: selectedFolderForNav.map {
-                        FolderDetailView(folder: $0).environmentObject(filesManager)
-                    },
-                    isActive: Binding(
-                        get: { selectedFolderForNav != nil },
-                        set: { if !$0 { selectedFolderForNav = nil } }
-                    )
-                ) { EmptyView() }.hidden()
 
                 VStack(alignment: .leading, spacing: 0) {
                     header.padding(.top, 8)
@@ -51,8 +41,15 @@ struct HomeView: View {
                 }
             }
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: Binding(
+                get: { selectedFolderForNav != nil },
+                set: { if !$0 { selectedFolderForNav = nil } }
+            )) {
+                if let folder = selectedFolderForNav {
+                    FolderDetailView(folder: folder).environmentObject(filesManager)
+                }
+            }
         }
-        .navigationViewStyle(.stack)
         .sheet(isPresented: $isShowingFilePicker) {
             DocumentPickerView { url in
                 filesManager.addFile(url: url)

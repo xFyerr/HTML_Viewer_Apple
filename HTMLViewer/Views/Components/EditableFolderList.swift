@@ -105,7 +105,7 @@ struct EditableFolderList: View {
     // MARK: - Reorder (List onMove)
 
     private func moveItems(from source: IndexSet, to destination: Int) {
-        var order = filesManager.homeOrder
+        let order = filesManager.homeOrder
         let items = source.map { order[$0] }
         var result = order.enumerated().filter { !source.contains($0.offset) }.map(\.element)
         let adj = destination - source.filter { $0 < destination }.count

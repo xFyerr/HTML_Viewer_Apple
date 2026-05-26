@@ -146,9 +146,7 @@ class RecentFilesManager: ObservableObject {
 
     /// Move `item` to just before `target` in homeOrder. Used by drag-to-reorder.
     func moveItem(_ item: HomeItemRef, before target: HomeItemRef) {
-        guard item != target,
-              homeOrder.contains(item),
-              let targetIndex = homeOrder.firstIndex(of: target) else { return }
+        guard item != target, homeOrder.contains(item) else { return }
         homeOrder.removeAll { $0 == item }
         let adjusted = homeOrder.firstIndex(of: target) ?? homeOrder.endIndex
         homeOrder.insert(item, at: adjusted)
