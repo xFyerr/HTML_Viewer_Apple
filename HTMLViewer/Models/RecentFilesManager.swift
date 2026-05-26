@@ -64,7 +64,11 @@ class RecentFilesManager: ObservableObject {
     }
 
     func moveFolders(from source: IndexSet, to destination: Int) {
-        folders.move(fromOffsets: source, toOffset: destination)
+        let items = source.map { folders[$0] }
+        var result = folders.enumerated().filter { !source.contains($0.offset) }.map(\.element)
+        let adjustedDest = destination - source.filter { $0 < destination }.count
+        result.insert(contentsOf: items, at: min(adjustedDest, result.count))
+        folders = result
         save()
     }
 
